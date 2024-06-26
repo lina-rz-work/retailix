@@ -45,7 +45,7 @@ function App() {
         </BrowserRouter> 
       </PersistGate> 
     </Provider>
-  );
+  )
 }
 
 export default App;

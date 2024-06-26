@@ -26,7 +26,7 @@ mongoose.connect(mongoUri).then(() => {
 
 const app = express();
 const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const __dirname = path.resolve();
 
 app.use('/images', express.static(path.join(__dirname, 'public/images')));
 app.use(express.json());
