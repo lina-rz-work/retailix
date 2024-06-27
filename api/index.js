@@ -28,7 +28,7 @@ const app = express();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.resolve();
 
-app.use('/images', express.static(path.join(__dirname, 'public/images')));
+app.use('/images', express.static(path.join(__dirname, 'api/public/images')));
 app.use(express.json());
 app.use(cookieParser());
 app.use(bodyParser.json());
