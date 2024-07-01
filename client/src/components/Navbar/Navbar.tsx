@@ -5,7 +5,7 @@ import { StyledNavbar, LogoName, NavMenu, NavMenuElem, ButtonsWrapper, NavButton
 import { ReactComponent as CartIcon } from '../../assets/images/icons/shopping-bag.svg';
 import { ReactComponent as UserIcon } from '../../assets/images/icons/user-com.svg';
 import { setLoginVisible, setCartVisible } from '../../features/uiState/uiStateSlice';
-import { setActiveMenuItem } from "../../features/navbar/navbarSlice";
+import { setActiveMenuItem, setScrolled } from "../../features/navbar/navbarSlice";
 import { selectLoginVisible, selectCartVisible } from "../../features/uiState/uiStateSelectors";
 import { selectCartQuantity } from "../../features/cart/cartSelectors";
 import { RootState } from "../../store/store";
@@ -18,7 +18,7 @@ const menuItems = [
 ];
 
 export const Navbar: React.FC = () => {
-  const [ scrolled, setScrolled ] = useState<boolean>(false);
+  const { scrolled } = useSelector((state: RootState) => state.navbar);
   const { user } = useSelector((state: RootState) => state.user);
   const { activeMenuItem } = useSelector((state: RootState) => state.navbar);
   const cartQuantity = useSelector(selectCartQuantity);
@@ -31,20 +31,20 @@ export const Navbar: React.FC = () => {
   useEffect(() => {
     const isRoute = /^\/(product|cart|profile)/.test(location.pathname);
     if (isRoute) {
-      setScrolled(true);
+      dispatch(setScrolled(true));
     } else {
-      setScrolled(false);
+      dispatch(setScrolled(false));
     }
 
     if (window.scrollY > 0) {
-      setScrolled(true);
+      dispatch(setScrolled(true));
     }
 
     const handleScroll = () => {
       if (window.scrollY > 0 || isRoute) {
-        setScrolled(true);
+        dispatch(setScrolled(true));
       } else {
-        setScrolled(false);
+        dispatch(setScrolled(false));
       }
     };
 
@@ -95,13 +95,15 @@ export const Navbar: React.FC = () => {
       <NavMenu scrolled={scrolled}>
         {menuItems.map((item, index) => {
           return (
-            <NavMenuElem 
-              key={index}
-              scrolled={scrolled}
-              className={activeMenuItem === item.name ? 'active' : ''}
-              onClick={() => dispatch(setActiveMenuItem(item.name))}>
-              <Link to={item.path}>{item.name}</Link>
-            </NavMenuElem>
+            <Link to={item.path}>
+              <NavMenuElem 
+                key={index}
+                scrolled={scrolled}
+                className={activeMenuItem === item.name ? 'active' : ''}
+                onClick={() => dispatch(setActiveMenuItem(item.name))}>
+                {item.name}
+              </NavMenuElem>
+            </Link>
           )
         })}
       </NavMenu>

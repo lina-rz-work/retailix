@@ -1,4 +1,4 @@
-import styled, { keyframes } from "styled-components";
+import styled from 'styled-components';
 
 interface StyledNavbarProps {
   scrolled: boolean;
@@ -24,7 +24,6 @@ interface NavButtonProps {
   scrolled: boolean;
 }
 
-
 export const StyledNavbar = styled.div<StyledNavbarProps>`
   box-sizing: border-box;
   position: fixed;
@@ -33,12 +32,11 @@ export const StyledNavbar = styled.div<StyledNavbarProps>`
   width: 100%;
   display: flex;
   justify-content: space-between;
-  /* background: ${props => props.scrolled ? "#fff" : "transparent"}; */
   background: ${props => props.scrolled ? "rgb(255 255 255 / 99%)" : "transparent"};
   box-shadow: 0 0 10px -3px #0000004f;
   padding: 14px 35px;
   transition: background-color 0.1s ease;
-  z-index: 1; //?
+  z-index: 8;
 `
 
 export const LogoName = styled.div<LogoNameProps>`
@@ -68,6 +66,13 @@ export const NavMenu = styled.ul<NavMenuProps>`
   gap: 50px;
   margin-bottom: 8px;
   padding-left: 0;
+
+  a {
+    text-decoration: none;
+    color: inherit;
+    font-weight: 300;
+    font-size: 14px;
+  }
 `
 
 export const NavMenuElem = styled.div<NavMenuElemProps>`
@@ -97,13 +102,6 @@ export const NavMenuElem = styled.div<NavMenuElemProps>`
 
   &.active::after {
     width: 100%;
-  }
-
-  a {
-    text-decoration: none;
-    color: inherit;
-    font-weight: 300;
-    font-size: 14px;
   }
 `;
 

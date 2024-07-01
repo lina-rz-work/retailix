@@ -7,10 +7,7 @@ interface SlidePanelProps {
 }
 
 export const SlidePanel: React.FC<SlidePanelProps> = ({ isVisible, onClose, children }) => {
-  // if (isVisible === false) {
-  //   return null;
-  // }
-  
+
   return (
     <>
       <Overlay isVisible={isVisible} onClick={onClose} />

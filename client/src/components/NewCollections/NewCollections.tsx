@@ -1,27 +1,10 @@
-import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { StyledNewCollections, CollectionsHeader, CollectionsContainer } from "./styles";
 import { Item } from "../Item/Item";
-import { ProductProps } from "../../types/product";
+import { RootState } from "../../store/store";
 
 export const NewCollections: React.FC = () => {
-  const [ newCollection, setNewCollection ] = useState<ProductProps[]>([]);
-
-  const fetchNewCollection = async () => {
-    const res = await fetch('/api/products/newcollection', {
-      method: 'GET',
-    });
-
-    if (!res.ok) {
-      throw new Error('Server error occurred while fetching the data.');
-    }
-
-    const data = await res.json();
-    setNewCollection(data);
-  }
-
-  useEffect(() => {
-    fetchNewCollection();
-  }, []);
+  const { newCollection } = useSelector((state: RootState) => state.newCollection)
 
   return (
     <StyledNewCollections>

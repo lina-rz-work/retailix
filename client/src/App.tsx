@@ -15,11 +15,13 @@ import { store, persistor } from './store/store';
 import { Profile } from './pages/Profile/Profile';
 import { PrivateRoute } from './components/PrivateRoute/PrivateRoute';
 import { fetchProducts } from './features/products/productsSlice';
+import { fetchNewCollection } from './features/newCollection/newCollectionSlice';
 import { Loader } from './components/Loader/Loader';
 
 function App() {
   useEffect(() => {
     store.dispatch(fetchProducts());
+    store.dispatch(fetchNewCollection());
   }, []);
 
   return (

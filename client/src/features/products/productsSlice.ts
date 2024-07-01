@@ -21,7 +21,7 @@ export const fetchProducts = createAsyncThunk(
 interface ProductsState {
   allProducts: ProductProps[];
   status: 'idle' | 'loading' | 'succeeded' | 'failed';
-  error: string | null;
+  error: any | null;
 }
 
 const initialState: ProductsState = {
@@ -46,7 +46,7 @@ const productsSlice = createSlice({
       })
       .addCase(fetchProducts.rejected, (state, action) => {
         state.status = 'failed';
-        state.error = 'Failed to fetch all products';
+        state.error = action.payload;
       })
   }
 });

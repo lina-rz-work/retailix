@@ -6,6 +6,7 @@ import productsReducer from "../features/products/productsSlice";
 import uiStateReducer from "../features/uiState/uiStateSlice";
 import userReducer from "../features/user/userSlice";
 import navbarReducer from "../features/navbar/navbarSlice";
+import newCollectionReducer from "../features/newCollection/newCollectionSlice";
 
 const persistConfig = {
   key: "root",
@@ -16,9 +17,10 @@ const persistConfig = {
 const RootReducer = {
   products: productsReducer,
   cart: cartReducer,
-  uiState: uiStateReducer,
   user: userReducer,
+  uiState: uiStateReducer,
   navbar: navbarReducer,
+  newCollection: newCollectionReducer,
 }
 
 const persistedReducer = persistReducer(persistConfig, combineReducers(RootReducer));
