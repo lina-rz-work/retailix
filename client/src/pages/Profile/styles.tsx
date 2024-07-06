@@ -91,12 +91,6 @@ export const MyOrders = styled.div`
   box-sizing: border-box;
 `
 
-export const OrdersMessage = styled.div`
-  margin: 0;
-  margin-top: 10px;
-  color: #2e3131;
-`
-
 export const Header = styled.div`
   font-size: 2em;
   margin-bottom: .8rem;

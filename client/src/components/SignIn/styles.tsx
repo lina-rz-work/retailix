@@ -53,10 +53,10 @@ export const PasswordWrapper = styled.div`
   display: flex;
   position: relative;
 
-  button {
+  span {
     position: absolute;
-    right: 0;
-    top: 8px;
+    right: 5px;
+    top: 10px;
   }
 `
 

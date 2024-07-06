@@ -91,6 +91,22 @@ export const removeCartItemServer = createAsyncThunk(
   }
 );
 
+export const clearCartServer = createAsyncThunk(
+  'cart/clearCartServer', 
+  async () => {
+    const res = await fetch('api/cart/clear', {
+      method: 'POST',
+    });
+
+    if (!res.ok) {
+      throw new Error('Error clearing cart');
+    }
+
+    const result = await res.json();
+    return result;
+  }
+);
+
 
 const cartSlice = createSlice({
   name: 'cart',
@@ -189,6 +205,9 @@ const cartSlice = createSlice({
       .addCase(removeCartItemServer.rejected, (state, action) => {
         state.status = 'failed';
         state.error = action.error.message || 'Failed to delete item in cart';
+      })
+      .addCase(clearCartServer.fulfilled, state => {
+        state.cartItems = [];
       })
   },
 });

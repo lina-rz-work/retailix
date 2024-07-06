@@ -19,6 +19,8 @@ export const StyledPrimaryButton = styled.button`
   cursor: pointer;
 
   &:hover {
-    opacity: .5;
+    // opacity: .5;
+    background: #ffffffa6;
+    color: #000;
   }
 `

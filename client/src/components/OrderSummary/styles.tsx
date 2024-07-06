@@ -58,7 +58,11 @@ export const TotalPrice = styled.div`
   margin-top: 10px;
 `
 
-export const CheckoutBtn = styled.button`
+interface CheckoutBtnProps {
+  status: string;
+}
+
+export const CheckoutBtn = styled.button<CheckoutBtnProps>`
   display: block;
   height: auto;
   font-family: "PT Sans", sans-serif;
@@ -76,6 +80,7 @@ export const CheckoutBtn = styled.button`
   text-transform: none;
   text-decoration: none;
   transition: all .2s;
+  opacity: ${props => props.status === 'loading' ? .7 : 1};
   cursor: pointer;
 
   &:hover {

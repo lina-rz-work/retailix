@@ -26,18 +26,19 @@ const fadeOut = keyframes`
   }
 `;
 
-
-export const NotificationContainer = styled.div<NotificationProps>`
+export const NotificationContainer = styled.div`
   position: fixed;
-  top: 76px;
-  left: 46.5%;
+  width: 99%;
+  display: flex;
+  justify-content: center;
+  top: 90px;
+`
+
+export const Message = styled.div<NotificationProps>`
   background-color: #444;
   color: #fff;
   padding: 15px 20px;
   border-radius: 5px;
-  
-  /* background-color: #000; */
-  /* color: #fff; */
   padding: 12px 18px;
 
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);

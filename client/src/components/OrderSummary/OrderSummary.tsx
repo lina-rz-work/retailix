@@ -1,15 +1,43 @@
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { OrderInfo, OrderInfoContainer, OrderDetails, DetailName, DetailValue, TotalPrice, CheckoutBtn } from "./styles";
 import { ProductTitle, DivideLineOrder, PayBtns, PayBtn, CheckoutMessage } from "./styles";
 import { ReactComponent as PayPalIcon} from "../../assets/images/icons/paypal-3-svgrepo-com.svg";
 import { ReactComponent as StripeIcon} from "../../assets/images/icons/stripe-svgrepo-com.svg";
-// import { useShopContext } from "../../context/ShopContext";
-import { useSelector } from "react-redux";
 import { selectTotalPrice } from "../../features/cart/cartSelectors";
+import { createOrder } from "../../features/orders/ordersSlice";
+import { clearCartServer } from "../../features/cart/cartSlice";
+import { RootState } from "../../store/store";
+import { AppDispatch } from "../../store/store";
 
-export const OrderSummary: React.FC = () => {
-  // const { getTotalPrice } = useShopContext();
+interface OrderSummaryProps {
+  showNotification: (message: string) => void;
+  showModal: () => void;
+}
+
+export const OrderSummary: React.FC<OrderSummaryProps> = ({ showNotification, showModal }) => {
+  const items = useSelector((state: RootState) => state.cart.cartItems);
+  const isAuthenticated = useSelector((state: RootState) => state.user.isAuthenticated);
+  const orderStatus = useSelector((state: RootState) => state.orders.status);
   const totalPrice = useSelector(selectTotalPrice);
   const subtotal = totalPrice;
+  const dispatch: AppDispatch = useDispatch();
+
+  async function handleCheckout() {
+    if (!isAuthenticated) {
+      showNotification('Please log in to place your order!');
+      return;
+    }
+    if (items.length === 0) {
+      showNotification('Your cart is empty. Please add items to place an order.');
+      return;
+    }
+    
+    dispatch(clearCartServer());
+    await dispatch(createOrder({ items, total }));
+    showModal();
+    // showNotification('Your order has been successfully placed!');
+  }
 
   const shipping = (() => {
     if (subtotal < 75 && subtotal !== 0) {
@@ -43,7 +71,10 @@ export const OrderSummary: React.FC = () => {
         <DivideLineOrder />
         <TotalPrice>Estimated Total <span>${total}</span></TotalPrice>
 
-        <CheckoutBtn>CHECKOUT</CheckoutBtn>
+          
+        <CheckoutBtn onClick={handleCheckout} status={orderStatus}>
+          {orderStatus === 'loading' ? 'PPOCESSING ORDER...' : 'CHECKOUT'}
+        </CheckoutBtn>
         <PayBtns>
           <PayBtn><PayPalIcon /></PayBtn>
           <PayBtn><StripeIcon /></PayBtn>

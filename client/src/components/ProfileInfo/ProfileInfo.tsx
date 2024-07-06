@@ -124,7 +124,6 @@ export const ProfileInfo: React.FC = () => {
 
       <Header>Personal Information</Header>
       <DivideLine />
-      {/* <Notification message={'notification'}/> */}
       
       <StyledInfo>
         <InfoForm onSubmit={handleUpdateUser} noValidate>

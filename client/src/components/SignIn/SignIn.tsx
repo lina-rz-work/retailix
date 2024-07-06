@@ -6,7 +6,8 @@ import { EyeButton } from "../Buttons/EyeButton/EyeButton";
 import { setLoginVisible } from "../../features/uiState/uiStateSlice";
 import { signInStart, signInSuccess, signInFailure } from "../../features/user/userSlice";
 import { setCart } from "../../features/cart/cartSlice";
-import { RootState } from "../../store/store";
+import { getOrders } from "../../features/orders/ordersSlice";
+import { RootState, AppDispatch } from "../../store/store";
 
 export const SignIn: React.FC = () => {
   const [ passwordVisible, setPasswordVisible ] = useState(false);
@@ -14,7 +15,7 @@ export const SignIn: React.FC = () => {
   const { loading, error } = useSelector((state: RootState) => state.user);
   const cart = useSelector((state: RootState) => state.cart.cartItems);
   const navigate = useNavigate();
-  const dispatch = useDispatch();
+  const dispatch: AppDispatch = useDispatch();
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
@@ -61,6 +62,8 @@ export const SignIn: React.FC = () => {
 
       const userCart = await response.json();
       dispatch(setCart(userCart.items));
+
+      dispatch(getOrders());
     } catch (error) {
       console.error('Login error:', error);
     }

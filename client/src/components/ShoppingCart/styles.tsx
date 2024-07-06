@@ -105,6 +105,7 @@ export const CheckoutBtn = styled.button`
   text-transform: none;
   text-decoration: none;
   transition: all .2s;
+  opacity: ${({ disabled }) => (disabled ? 0.5 : 1)};
   cursor: pointer;
 
   &:hover {

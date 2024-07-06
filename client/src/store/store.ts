@@ -7,19 +7,21 @@ import uiStateReducer from "../features/uiState/uiStateSlice";
 import userReducer from "../features/user/userSlice";
 import navbarReducer from "../features/navbar/navbarSlice";
 import newCollectionReducer from "../features/newCollection/newCollectionSlice";
+import ordersReducer from "../features/orders/ordersSlice";
 
 const persistConfig = {
   key: "root",
   storage,
-  whitelist: ["user", "cart"],
+  whitelist: ["user", "cart", "orders"],
 }
 
 const RootReducer = {
-  products: productsReducer,
   cart: cartReducer,
   user: userReducer,
+  orders: ordersReducer,
   uiState: uiStateReducer,
   navbar: navbarReducer,
+  products: productsReducer,
   newCollection: newCollectionReducer,
 }
 

@@ -23,6 +23,13 @@ export const ShoppingBag = styled.div`
   box-sizing: border-box;
 `
 
+export const EmptyCart = styled.div`
+  text-align: center;
+  color: #2E3131;
+  font-family: 'PT Sans';
+  margin: 20px 0;
+`
+
 export const ItemsContainer = styled.div`
   display: flex;
   flex-direction: column;

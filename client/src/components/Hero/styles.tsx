@@ -8,7 +8,6 @@ export const HeroContainer = styled.div`
   height: 100vh;
   background-repeat: no-repeat;
   background-image: url(/images/backgrounds/full-shot-family-sitting-grass-together.jpg);
-  background-position-y: 68%;
   background-size: cover;
   margin-bottom: 40px;
 

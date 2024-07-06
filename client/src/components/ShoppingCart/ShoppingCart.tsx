@@ -9,8 +9,6 @@ import { selectCartVisible } from "../../features/uiState/uiStateSelectors";
 import { setCartVisible } from "../../features/uiState/uiStateSlice";
 import { setActiveMenuItem } from "../../features/navbar/navbarSlice";
 
-import { Loader } from "../Loader/Loader";
-
 
 export function ShoppingCart() {
   const cartItems = useSelector(selectCartItems);
@@ -40,9 +38,7 @@ export function ShoppingCart() {
           {cartItems.map((cartItem, index) => {
             return <CartItem key={index} {...cartItem}/>
           })}
-{/* <Loader></Loader> */}
         </ItemsContainer>
-
       </StyledSchoppingCart>
 
       <CheckoutContainer>
@@ -52,7 +48,7 @@ export function ShoppingCart() {
         </TotalContainer>
 
         <Link to={"/cart"}>
-          <CheckoutBtn onClick={handleClick}>
+          <CheckoutBtn onClick={handleClick} disabled={cartItems.length === 0 ? true : false}>
             CHECKOUT
           </CheckoutBtn>
         </Link>

@@ -87,14 +87,6 @@ export const StyledLoader = styled.div`
 `;
 
 export const Spinner = styled.div`
-  /* border: 4px solid rgba(0, 0, 0, 0.1); */
-  /* border-left-color: #6b6b6b; */
-  /* border-radius: 50%; */
-  /* width: 40px; */
-  /* height: 40px; */
-  /* margin-bottom: 80%; */
-  /* animation: ${spinAnimation} 1s linear infinite; */
-  
   font-family: "PT Sans", sans-serif;
   border: 2px solid rgba(0, 0, 0, 0.1);
   border-left-color: #6b6b6b;

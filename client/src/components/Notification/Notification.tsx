@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { NotificationContainer } from './styles';
+import { Message, NotificationContainer } from './styles';
 
 interface Props {
   message: string;
@@ -22,5 +22,10 @@ export const Notification: React.FC<Props> = ({ message, duration = 3000, onClos
     };
   }, [message, duration, onClose]);
 
-  return <NotificationContainer show={visible}>{message}</NotificationContainer>;
+  return (
+    <NotificationContainer>
+      <Message show={visible}>{message}</Message>
+    </NotificationContainer>
+  )
+  
 };

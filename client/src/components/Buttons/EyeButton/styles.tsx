@@ -1,6 +1,6 @@
 import styled from "styled-components"
 
-export const ToggleBtn = styled.button`
+export const ToggleBtn = styled.span`
   font-size: 18px;
   color: #2e3131;
   background: transparent;

@@ -1,13 +1,19 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { Menu, ListContainer, ListItem, SignoutBtn, ContentContainer, MyOrders, Header, OrdersMessage, StyledCart, DivideLine, Subscriptions, SubscrMessage} from "./styles";
+import { useLocation } from "react-router-dom";
+import { Menu, ListContainer, ListItem, SignoutBtn, ContentContainer, MyOrders, Header, StyledCart, DivideLine, Subscriptions, SubscrMessage} from "./styles";
 import { ProfileInfo } from "../../components/ProfileInfo/ProfileInfo";
 import { signOutUserStart, signOutUserSuccess, signOutUserFailure } from "../../features/user/userSlice";
 import { clearCart } from "../../features/cart/cartSlice";
+import { clearOrders } from "../../features/orders/ordersSlice";
+import { OrderList } from "../../components/OrderList/OrderList";
+
+
 
 export const Profile: React.FC = () => {
   const [ isActive, setIsActive ] = useState<string | null>('my account');
   const dispatch = useDispatch();
+  const location = useLocation();
 
   const handleSignOut = async () => {
     try {
@@ -22,10 +28,17 @@ export const Profile: React.FC = () => {
       }
       dispatch(signOutUserSuccess(data));
       dispatch(clearCart());
+      dispatch(clearOrders());
     } catch(err: any) {
       dispatch(signOutUserFailure(err.message));
     }
   }
+
+  useEffect(() => {
+    if (location.state && location.state.activeTab) {
+      setIsActive(location.state.activeTab);
+    }
+  }, [location.state]);
 
   return (
     <StyledCart>
@@ -53,7 +66,7 @@ export const Profile: React.FC = () => {
           <MyOrders>
             <Header>My Orders</Header>
             <DivideLine />
-            <OrdersMessage>Explore the catalog to make your first order.</OrdersMessage>
+            <OrderList />
           </MyOrders>
         }
 

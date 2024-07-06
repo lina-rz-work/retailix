@@ -5,7 +5,10 @@ import { PrimaryButton } from "../Buttons/PrimaryButton/PrimaryButton";
 export const Hero: React.FC = () => {
 
   function seeCollection() {
-    window.scrollTo(0, 1660);
+    window.scrollTo({
+      top: 1660,
+      behavior: 'smooth'
+    });
   }
 
   return (
