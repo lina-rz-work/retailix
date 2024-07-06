@@ -3,11 +3,13 @@ import { createSlice } from "@reduxjs/toolkit";
 interface NavbarState {
   activeMenuItem: string | null;
   scrolled: boolean;
+  loading: boolean;
 }
 
 const initialState: NavbarState = {
-  activeMenuItem: 'home',
+  activeMenuItem: null,
   scrolled: false,
+  loading: false,
 }
 
 const navbarSlice = createSlice({
@@ -19,10 +21,13 @@ const navbarSlice = createSlice({
     },
     setScrolled(state, action) {
       state.scrolled = action.payload;
+    },
+    setLoading(state, action) {
+      state.loading = action.payload;
     }
   }
 });
 
-export const { setActiveMenuItem, setScrolled } = navbarSlice.actions;
+export const { setActiveMenuItem, setScrolled, setLoading } = navbarSlice.actions;
 
 export default navbarSlice.reducer;

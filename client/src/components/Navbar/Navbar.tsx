@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { StyledNavbar, LogoName, NavMenu, NavMenuElem, ButtonsWrapper, NavButton, CartCounter } from "./styles";
 import { ReactComponent as CartIcon } from '../../assets/images/icons/shopping-bag.svg';
 import { ReactComponent as UserIcon } from '../../assets/images/icons/user-com.svg';
@@ -20,7 +20,7 @@ const menuItems = [
 export const Navbar: React.FC = () => {
   const { scrolled } = useSelector((state: RootState) => state.navbar);
   const { user } = useSelector((state: RootState) => state.user);
-  const { activeMenuItem } = useSelector((state: RootState) => state.navbar);
+  const { activeMenuItem, loading } = useSelector((state: RootState) => state.navbar);
   const cartQuantity = useSelector(selectCartQuantity);
   const loginVisible = useSelector(selectLoginVisible);
   const cartVisible = useSelector(selectCartVisible);
@@ -41,7 +41,7 @@ export const Navbar: React.FC = () => {
     }
 
     const handleScroll = () => {
-      if (window.scrollY > 0 || isRoute) {
+      if (window.scrollY > 0 || isRoute || loading) {
         dispatch(setScrolled(true));
       } else {
         dispatch(setScrolled(false));
@@ -52,7 +52,7 @@ export const Navbar: React.FC = () => {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, [location.pathname]);
+  }, [location.pathname, loading]);
 
   useEffect(() => {
     if (location.pathname === '/') {
@@ -64,9 +64,15 @@ export const Navbar: React.FC = () => {
     if (!isRoute) {
       return;
     }
-
     dispatch(setActiveMenuItem(location.pathname.slice(1)));
-  }, [location.pathname]);
+    
+    if (window.scrollY > 0|| loading) {
+      dispatch(setScrolled(true));
+      return;
+    }
+    dispatch(setScrolled(false));
+
+  }, [location.pathname, loading]);
 
   useEffect(() => {
     window.scrollTo(0, 0);

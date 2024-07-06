@@ -4,7 +4,7 @@ import { StyledShopCategory, StyledLoader, Spinner } from "./styles";
 import { ShopCategoryContent } from "../../components/ShopCategoryContent/ShopCategoryContent";
 import { Banner } from "../../components/Banner/Banner";
 import { banners } from "../../components/Banner/bannerData";
-import { setScrolled } from "../../features/navbar/navbarSlice";
+import { setLoading } from "../../features/navbar/navbarSlice";
 import { RootState } from "../../store/store";
 
 interface ShopCategoryProps {
@@ -21,7 +21,7 @@ export const ShopCategory: React.FC<ShopCategoryProps> = ({ category }) => {
   useEffect(() => {
     let isMounted = true;
     setLoaderVisible(true);
-    dispatch(setScrolled(true));
+    dispatch(setLoading(true));
 
     const imagePromises = categoryProducts.map(product => {
       return new Promise((resolve, reject) => {
@@ -50,7 +50,7 @@ export const ShopCategory: React.FC<ShopCategoryProps> = ({ category }) => {
           setTimeout(() => {
             if (isMounted) {
               setLoaderVisible(false);
-              dispatch(setScrolled(false));
+              dispatch(setLoading(false))
             }
           }, 500);
         }
@@ -58,7 +58,7 @@ export const ShopCategory: React.FC<ShopCategoryProps> = ({ category }) => {
       .catch(err => {
         if (isMounted) {
           setImagesLoaded(true);
-          dispatch(setScrolled(false));
+          dispatch(setLoading(false))
           console.error('Failed to load image:', err);
         }
       });

@@ -105,7 +105,6 @@ export const NavMenuElem = styled.div<NavMenuElemProps>`
   }
 `;
 
-
 export const ButtonsWrapper = styled.div<ButtonsWrapperProps>`
   display: flex;
   align-items: center;
@@ -122,7 +121,7 @@ export const NavButton = styled.div<NavButtonProps>`
   display: flex;
   flex-direction: column;
   align-items: center;
-  position: relative; //?
+  position: relative;
   background-color: transparent;
   border: 0;
   font-size: 12px;
@@ -130,8 +129,6 @@ export const NavButton = styled.div<NavButtonProps>`
   transition: color 0.1s ease;
 
   svg {
-    /* fill: #000; */
-    /* transition: fill 0.1s ease; */
     fill: ${props => props.scrolled ? "#171717" : "#efe3de"};
     margin-bottom: 4px;
     transition: all 0.2s ease;
@@ -151,5 +148,4 @@ export const CartCounter = styled.div`
   left: 28px;
   top: -12px;
 `
-
 
