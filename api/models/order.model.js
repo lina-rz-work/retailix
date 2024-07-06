@@ -17,15 +17,19 @@ const cartItemSchema = new mongoose.Schema({
 }, { _id: false });
 
 
-const cartSchema = new mongoose.Schema({
+const orderSchema = new mongoose.Schema({
   userId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
     required: true,
   },
   items: [cartItemSchema],
+  totalAmount: {
+    type: String,
+    required: true,
+  }
 }, { timestamps: true });
 
-const Cart = mongoose.model('Cart', cartSchema);
+const Order = mongoose.model('Order', orderSchema);
 
-export default Cart;
+export default Order;

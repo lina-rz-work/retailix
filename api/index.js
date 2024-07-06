@@ -6,6 +6,7 @@ import { fileURLToPath } from 'url';
 import userRouter from './routes/user.route.js';
 import authRouter from './routes/auth.route.js';
 import cartRoutes from './routes/cart.route.js';
+import ordersRoutes from './routes/order.route.js';
 import productRoutes from './routes/product.route.js';
 import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
@@ -43,6 +44,8 @@ app.use('/api/user', userRouter);
 app.use('/api/auth', authRouter);
 
 app.use('/api/cart', cartRoutes);
+
+app.use('/api/orders', ordersRoutes);
 
 app.use('/api', productRoutes);
 
