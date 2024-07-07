@@ -5,7 +5,6 @@ export const StyledPopular = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 10px;
-  /* height: 100vh; */
   max-height: max-content;
   margin-bottom: 150px;
 `
@@ -22,7 +21,6 @@ export const PopularHeader = styled.h1`
 export const ProductsContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  /* gap: 30px; */
   gap: 10px;
   padding: 0 150px;
 `

@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { useSelector } from "react-redux";
-import { RootState } from "../../store/store";
-import { Order } from '../../types/order';
+import { OrderListContainer, OrderMessage } from './styles';
 import { OrderItem } from '../OrderItem/OrderItem';
 import { OrderDetails } from '../OrderDetails/OrderDetails';
-import { OrderListContainer, OrderMessage } from './styles';
+import { Order } from '../../types/order';
+import { RootState } from "../../store/store";
 
 export const OrderList = () => {
   const orders = useSelector((state: RootState) => state.orders.orders);
@@ -20,7 +20,6 @@ export const OrderList = () => {
             key={index} 
             order={order} 
             onClick={() => setSelectedOrder(order)}
-            // onClose={() => setSelectedOrder(null)}
           />
         )
       })}

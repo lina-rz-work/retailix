@@ -109,6 +109,7 @@ export const CheckoutBtn = styled.button`
   cursor: pointer;
 
   &:hover {
-    opacity: .5;
+    color: ${({ disabled }) => (disabled ? '#171717' : '#fff')};
+    background-color: ${({ disabled }) => (disabled ? '#fff' : '#000000f2')};
   }
 `

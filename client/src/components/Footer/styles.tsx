@@ -14,7 +14,6 @@ export const StyledFooter = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* font-family: "PT Sans", sans-serif; */
   margin-top: 80px;
 `
 
@@ -29,20 +28,6 @@ export const FooterLinksContainer = styled.div`
   padding: 0 150px;
   margin-bottom: 40px;
   margin-top: 30px;
-`
-
-export const SocialLinks = styled.ul`
-  display: flex;
-  gap: 20px;
-  padding-left: 0px;
-  margin-top: 10px;
-  margin-bottom: 30px;
-
-  i {
-    color: #252525;
-    font-size: 20px;
-    padding: 10px;
-  }
 `
 
 export const Copyright = styled.div`

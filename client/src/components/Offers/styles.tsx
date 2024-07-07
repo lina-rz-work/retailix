@@ -4,18 +4,14 @@ export const StyledOffers = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: start;
+  height: 60vh;
   padding: 0 50px;
   padding-left: 150px;
-  /* background-image: url('/images/backgrounds/full-shot-kids-walking-together.jpg'); */
   background-size: 120%;
-  height: 60vh;
-  height: 60vh;
   background-repeat: no-repeat;
-  background-position-y: -320px;
-  margin-bottom: 60px;
-  
   background-image: url('/images/backgrounds/full-shot-kids-sitting-grass.jpg');
   background-position-y: -520px;
+  margin-bottom: 60px;
 
   button {
     align-self: start;

@@ -29,7 +29,7 @@ export const Panel = styled.div<{ isVisible: boolean }>`
   box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
   transform: translateX(${({ isVisible }) => (isVisible ? '0' : '110%')});
   animation: ${({ isVisible }) => (isVisible ? slideIn : slideOut)} 0.5s forwards;
-  z-index: 10; //?
+  z-index: 10;
 `;
 
 export const Overlay = styled.div<{ isVisible: boolean }>`

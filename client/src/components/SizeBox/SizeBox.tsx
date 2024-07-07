@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { StyledSizeBox, SizesContainer, SelectSize, SizeTable, SizeBtnContainer, SizeButton, WarnMessage} from "./styles";
 
 interface SizeBoxProps {

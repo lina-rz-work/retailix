@@ -1,10 +1,8 @@
-import { Item } from "../Item/Item";
-import { StyledRelatedProd, ProductsContainer, RelatedHeader } from "./styles";
-// import allProducts from "../../data/all_products.json";
-import { useParams } from "react-router-dom";
-
-import { getRelatedProducts } from "../../utilities/getRelatedProducts";
 import { useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
+import { StyledRelatedProd, ProductsContainer, RelatedHeader } from "./styles";
+import { Item } from "../Item/Item";
+import { getRelatedProducts } from "../../utilities/getRelatedProducts";
 import { RootState } from "../../store/store";
 
 interface RelatedProductsProps {

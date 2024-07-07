@@ -8,8 +8,6 @@ import { clearCart } from "../../features/cart/cartSlice";
 import { clearOrders } from "../../features/orders/ordersSlice";
 import { OrderList } from "../../components/OrderList/OrderList";
 
-
-
 export const Profile: React.FC = () => {
   const [ isActive, setIsActive ] = useState<string | null>('my account');
   const dispatch = useDispatch();

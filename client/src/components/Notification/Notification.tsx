@@ -27,5 +27,4 @@ export const Notification: React.FC<Props> = ({ message, duration = 3000, onClos
       <Message show={visible}>{message}</Message>
     </NotificationContainer>
   )
-  
 };

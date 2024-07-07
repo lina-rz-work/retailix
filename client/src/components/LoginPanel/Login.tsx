@@ -1,10 +1,10 @@
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { StyledLogin, SwitchBox, Tab, CloseBtn } from "./styles";
 import { SlidePanel } from "../../components/SlidePanel/SlidePanel";
 import { SignIn } from "../SignIn/SignIn";
 import { Signup } from "../Signup/Signup";
-import { StyledLogin, SwitchBox, Tab, CloseBtn } from "./styles";
 import { ReactComponent as CrossIcon } from "../../assets/images/icons/cross-svgrepo-com.svg";
-import { useDispatch, useSelector } from "react-redux";
 import { selectLoginVisible } from "../../features/uiState/uiStateSelectors";
 import { setLoginVisible } from "../../features/uiState/uiStateSlice";
 

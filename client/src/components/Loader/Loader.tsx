@@ -1,7 +1,7 @@
-import { StyledLoader, Spinner } from './styles';
-import { useSelector } from 'react-redux';
-import { RootState } from '../../store/store';
 import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+import { StyledLoader, Spinner } from './styles';
+import { RootState } from '../../store/store';
 
 export const Loader = () => {
   const status = useSelector((state: RootState) => state.products.status);

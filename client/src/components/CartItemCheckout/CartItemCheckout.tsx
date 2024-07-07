@@ -1,8 +1,8 @@
-import { StyledCartItem, ProductInfo, StyledLink, CartImage, ProdName, Details, Param, QtyPriceContainer } from "./styles";
-import { QtyContainer, DecreaseBtn, IncreaseBtn, PriceContainer, OldPrice, NewPrice, RemoveBtn  } from "./styles";
-import { ReactComponent as CrossIcon} from "../../assets/images/icons/cross-svgrepo-com.svg";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import { ReactComponent as CrossIcon} from "../../assets/images/icons/cross-svgrepo-com.svg";
+import { StyledCartItem, ProductInfo, StyledLink, CartImage, ProdName, Details, Param, QtyPriceContainer } from "./styles";
+import { QtyContainer, DecreaseBtn, IncreaseBtn, PriceContainer, OldPrice, NewPrice, RemoveBtn  } from "./styles";
 import { increaseItemQuantity, decreaseItemQuantity, removeCartItem } from "../../features/cart/cartSlice";
 import { increaseItemQuantityServer, decreaseItemQuantityServer, removeCartItemServer } from "../../features/cart/cartSlice";
 import { setActiveMenuItem } from "../../features/navbar/navbarSlice";

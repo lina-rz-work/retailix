@@ -109,7 +109,7 @@ export const ShopCategoryContent: React.FC<ShopCategoryProps> = ({ category }) =
         })}
       </ProductsContainer>
 
-      <ShowMoreButton>SHOW MORE</ShowMoreButton>
+      <ShowMoreButton disabled={true}>SHOW MORE</ShowMoreButton>
     </StyledShopContent>
   )
 }

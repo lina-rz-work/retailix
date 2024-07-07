@@ -36,7 +36,6 @@ export const OrderSummary: React.FC<OrderSummaryProps> = ({ showNotification, sh
     dispatch(clearCartServer());
     await dispatch(createOrder({ items, total }));
     showModal();
-    // showNotification('Your order has been successfully placed!');
   }
 
   const shipping = (() => {

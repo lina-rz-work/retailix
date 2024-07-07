@@ -1,10 +1,10 @@
-import { Link } from "react-router-dom";
 import { useState } from "react";
+import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import { StyledItem, PictureBlock, AddButton, ChooseSize, SizeButton, ItemName, PricesContainer, NewPrice, OldPrice } from "./styles";
 import { increaseItemQuantity, increaseItemQuantityServer } from "../../features/cart/cartSlice";
 import { setCartVisible } from "../../features/uiState/uiStateSlice";
 import { setActiveMenuItem } from "../../features/navbar/navbarSlice";
-import { useDispatch, useSelector } from "react-redux";
 import { RootState, AppDispatch } from "../../store/store";
 import { ProductProps } from "../../types/product";
 

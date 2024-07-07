@@ -25,20 +25,11 @@ export const InfoContainer = styled.div`
 `
 
 export const StyledInfo = styled.div`
-  // width: 40%;
   width: 45%;
   font-family: "PT Sans", sans-serif;
   margin-top: 40px;
   margin-bottom: 50px;
 `
-
-// export const InfoHeader = styled.h2`
-//   font-weight: 400;
-//   color: #2e3131;
-//   font-size: 22px;
-//   margin-top: 0;
-//   margin-bottom: 40px;
-// `
 
 export const InfoForm = styled.form`
   display: flex;

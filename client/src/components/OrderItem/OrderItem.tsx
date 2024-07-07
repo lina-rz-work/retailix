@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
-import { Order } from '../../types/order';
 import { OrderItemWrapper, OrderInfo, OrderActions, ShowBtn, CancelBtn } from './styles';
 import { cancelOrder } from '../../features/orders/ordersSlice';
+import { Order } from '../../types/order';
 import { AppDispatch } from '../../store/store';
 
 interface OrderItemProps {

@@ -6,10 +6,10 @@ interface PrimaryButtonProps {
   onClick?: () => void;
 }
 
-export const PrimaryButton: React.FC<PrimaryButtonProps> = ( { text, onClick } ) => {   // { value, onClick }
+export const PrimaryButton: React.FC<PrimaryButtonProps> = ( { text, onClick } ) => {
 
   return (
-    <StyledPrimaryButton onClick={onClick}> {/* onClick={onClick} */}
+    <StyledPrimaryButton onClick={onClick}>
       {text}
     </StyledPrimaryButton>
   )

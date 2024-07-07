@@ -1,10 +1,10 @@
+import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import { StyledProduct } from "./styles";
 import { Breadcrumbs } from "../../components/Breadcrumbs/Breadcrumbs";
-import { StyledProduct } from "./stlyles";
 import { ProductDisplay } from "../../components/ProductDisplay/ProductDisplay";
 import { DescriptionBox } from "../../components/DescriptionBox/DescriptionBox";
 import { RelatedProducts } from "../../components/RelatedProducts/RelatedProducts";
-import { useSelector } from "react-redux";
 import { RootState } from "../../store/store";
 
 export const Product: React.FC = () => {
@@ -22,7 +22,8 @@ export const Product: React.FC = () => {
         <ProductDisplay {...product}/>
         <DescriptionBox {...product}/>
       </StyledProduct>
-        <RelatedProducts category={ product.category }/>
+      
+      <RelatedProducts category={ product.category }/>
     </>
   )
 }

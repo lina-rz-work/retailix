@@ -10,10 +10,6 @@ export const StyledNewsletter = styled.div`
   height: 60vh;
   height: 60vh;
   margin-bottom: 60px;
-  /* background-size: 120%;
-  background-repeat: no-repeat;
-  background-position-y: -270px; */
-
   background-size: 230%;
   background-repeat: no-repeat;
   background-position-y: -1030px;

@@ -45,6 +45,7 @@ export const ProductsContainer = styled.div`
 export const ShowMoreButton = styled.button`
   color: #171717;
   max-width: max-content;
+  font-size: 14px;
   font-family: Futura PT;
   font-weight: 300;
   border-color: #171717;
@@ -54,15 +55,11 @@ export const ShowMoreButton = styled.button`
   border: 1px solid #171717;
   text-align: center;
   background-color: transparent;
-  font-size: 1rem;
   text-transform: none;
   text-decoration: none;
   transition: all .2s;
+  opacity: ${ ({ disabled }) => disabled ? .5 : 1 };
   cursor: pointer;
-
-  &:hover {
-    opacity: .5;
-  }
 `
 
 

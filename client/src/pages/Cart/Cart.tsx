@@ -3,9 +3,9 @@ import { useSelector } from "react-redux";
 import { ShoppingBag, Header, EmptyCart, ItemsContainer, StyledCart, DivideLine} from "./styles";
 import { CartItemCheckout } from "../../components/CartItemCheckout/CartItemCheckout";
 import { OrderSummary } from "../../components/OrderSummary/OrderSummary";
-import { selectCartItems } from "../../features/cart/cartSelectors";
 import { Notification } from "../../components/Notification/Notification";
 import { OrderModal } from "../../components/OrderModal/OrderModal";
+import { selectCartItems } from "../../features/cart/cartSelectors";
 
 export const Cart: React.FC = () => {
   const cartItems = useSelector(selectCartItems);

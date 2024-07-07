@@ -5,7 +5,6 @@ export const StyledNewCollections = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 10px;
-  /* height: 100vh; */
   max-height: max-content;
   margin-bottom: 150px;
 `
@@ -20,7 +19,6 @@ export const CollectionsHeader = styled.h1`
 export const CollectionsContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  /* gap: 30px; */
   gap: 10px;
   row-gap: 50px;
   padding: 0 150px;

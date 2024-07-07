@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
-import { SizeBox } from "../SizeBox/SizeBox";
 import { ProductContainer, ImageGallery, ProductInfo, ProductTitle, ProductDescription, DivideLine, PriceContainer, OldPrice, NewPrice, Color, AddToCartButton, ShippingInfo } from "./styles";
+import { SizeBox } from "../SizeBox/SizeBox";
 import { increaseItemQuantity, increaseItemQuantityServer } from "../../features/cart/cartSlice";
 import { setCartVisible } from "../../features/uiState/uiStateSlice";
-import { useDispatch, useSelector } from "react-redux";
-import { RootState, AppDispatch } from "../../store/store";
 import { ProductProps } from "../../types/product";
+import { RootState, AppDispatch } from "../../store/store";
 
 export const ProductDisplay: React.FC<ProductProps> = ( product ) => {
   const isAuthenticated = useSelector((state: RootState) => state.user.isAuthenticated);
@@ -54,7 +54,6 @@ export const ProductDisplay: React.FC<ProductProps> = ( product ) => {
       <ProductInfo>
         <div>
           <ProductTitle>{product.name}</ProductTitle>
-          
           <DivideLine />
           <ProductDescription>{product.description}</ProductDescription>
 
@@ -62,11 +61,9 @@ export const ProductDisplay: React.FC<ProductProps> = ( product ) => {
             <OldPrice>${product.oldPrice.toFixed(2)}</OldPrice>
             <NewPrice>${product.newPrice.toFixed(2)}</NewPrice>
           </PriceContainer>
-
           <Color>{product.color}</Color>
         </div>
 
-        
         <div>
           <DivideLine />
           <SizeBox
@@ -75,9 +72,7 @@ export const ProductDisplay: React.FC<ProductProps> = ( product ) => {
             setSelectedSize={setSelectedSize} 
             setWarningMessage={setWarningMessage}
           />
-
           <AddToCartButton onClick={addToCart}>Add to Cart</AddToCartButton>
-
           <ShippingInfo>Free Standard Shipping on $75+</ShippingInfo>
         </div>
       </ProductInfo>

@@ -8,7 +8,6 @@ export const ProductContainer = styled.div`
   font-size: 14px;
   font-weight: 400;
   color: #2e3131;
-  /* color: #000000; */
   margin-bottom: 30px;
 `
 
@@ -39,7 +38,6 @@ export const ProductTitle = styled.h1`
   font-size: 2em;
   margin-bottom: .8rem;
   line-height: 2rem;
-  /* color: #2e2e2e; */
   color: #000000;
   margin: 0 0 20px;
   font-weight: 300;
@@ -98,7 +96,8 @@ export const AddToCartButton = styled.button`
   cursor: pointer;
 
   &:hover {
-    opacity: .5;
+    color: #fff;
+    background-color: #000000f2;
   }
 `
 

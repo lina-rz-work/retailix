@@ -1,4 +1,4 @@
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 
 interface StyledItemProps {
   clicked: boolean;
@@ -42,10 +42,6 @@ export const PictureBlock = styled.div`
   max-width: 250px;
 
   img {
-    // width: 100%;
-    // height: 100%;
-    // max-width: 250px;
-    // max-height: 330px;
     width: 250px;
     height: 330px;
     object-fit: cover;
@@ -90,11 +86,9 @@ export const ChooseSize = styled.div<ChooseSizeProps>`
   bottom: -1px;
   background-color: ${props => props.clicked ? "hsla(0, 0%, 100%, .9)" : "hsla(0, 0%, 100%, .5)"};
   transition: opacity 0.5s, transform 0.5s;
-  /* transform: ${props => props.clicked ? "translateY(-70px)" : "translateY(-50px)"}; */
   transform: translateY(0px);
   opacity: ${props => props.clicked ? 1 : 0};
   transition-delay: ${props => props.clicked ? "0.2s" : "0.1s"};
-
   text-align: center;
   border: none;
   padding: 10px 5px 20px;
@@ -109,11 +103,6 @@ export const ChooseSize = styled.div<ChooseSizeProps>`
     color: #2e3131;
   }
 `
-
-
-
-
-
 
 export const SizeButton = styled.button`
   position: relative;

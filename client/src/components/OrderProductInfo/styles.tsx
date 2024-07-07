@@ -57,7 +57,6 @@ export const Details = styled.div`
   flex-wrap: wrap;
   font-size: 13px;
   color: rgb(46, 49, 49);
-  /* margin-bottom: 15px; */
 `
 
 export const Param = styled.div`

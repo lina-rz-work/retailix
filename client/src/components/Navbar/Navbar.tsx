@@ -101,9 +101,8 @@ export const Navbar: React.FC = () => {
       <NavMenu scrolled={scrolled}>
         {menuItems.map((item, index) => {
           return (
-            <Link to={item.path}>
-              <NavMenuElem 
-                key={index}
+            <Link to={item.path} key={index}>
+              <NavMenuElem
                 scrolled={scrolled}
                 className={activeMenuItem === item.name ? 'active' : ''}
                 onClick={() => dispatch(setActiveMenuItem(item.name))}>
@@ -126,7 +125,6 @@ export const Navbar: React.FC = () => {
           <CartCounter>{cartQuantity}</CartCounter>
         </NavButton>
       </ButtonsWrapper>
-
     </StyledNavbar>
   )
 }

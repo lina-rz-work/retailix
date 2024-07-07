@@ -10,7 +10,6 @@ export const OrderItemWrapper = styled.div`
   background-color: transparent;
   border: 1px solid #ccc;
   padding: 5px 50px;
-  /* margin: 10px; */
   margin: 15px;
   cursor: pointer;
 
