@@ -69,7 +69,7 @@ export const ContentContainer = styled.div`
   padding-top: 40px;
 `
 
-export const StyledCart = styled.div`
+export const StyledProfile = styled.div`
   height: 100%;
   display: flex;
   align-items: flex-start;

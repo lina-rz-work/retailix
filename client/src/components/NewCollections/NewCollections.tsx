@@ -7,7 +7,7 @@ export const NewCollections: React.FC = () => {
   const { newCollection } = useSelector((state: RootState) => state.newCollection)
 
   return (
-    <StyledNewCollections>
+    <StyledNewCollections id="collection">
       <CollectionsHeader>NEW COLLECTIONS</CollectionsHeader>
       <CollectionsContainer>
         {newCollection.map(product => {

@@ -13,9 +13,9 @@ interface ShopCategoryProps {
 
 export const ShopCategory: React.FC<ShopCategoryProps> = ({ category }) => {
   const allProducts = useSelector((state: RootState) => state.products.allProducts);
+  const categoryProducts = allProducts.filter(product => product.category === category);
   const [imagesLoaded, setImagesLoaded] = useState<boolean>(false);
   const [loaderVisible, setLoaderVisible] = useState<boolean>(false);
-  const categoryProducts = allProducts.filter(product => product.category === category);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -26,21 +26,21 @@ export const ShopCategory: React.FC<ShopCategoryProps> = ({ category }) => {
     const imagePromises = categoryProducts.map(product => {
       return new Promise((resolve, reject) => {
         const img = new Image();
+        img.src = product.images[0].url;
         img.onload = () => resolve(undefined);
         img.onerror = () => reject();
-        img.src = product.images[0].url;
       });
     });
 
     const bannerImagePromise = new Promise((resolve, reject) => {
       const bannerImage = new Image();
-      bannerImage.onload = () => resolve(undefined);
-      bannerImage.onerror = reject;
       const src = banners.find(banner => banner.category === category)?.imgUrl;
       if (!src) {
         return;
       }
       bannerImage.src = src;
+      bannerImage.onload = () => resolve(undefined);
+      bannerImage.onerror = reject;
     });
 
     Promise.all([...imagePromises, bannerImagePromise])

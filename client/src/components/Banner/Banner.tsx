@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-scroll";
 import { StyledBanner, BannerHeader } from "./styles";
 import { PrimaryButton } from "../Buttons/PrimaryButton/PrimaryButton";
 import { banners } from "./bannerData";
@@ -17,7 +18,9 @@ export const Banner: React.FC<BannerProps> = ({ category }) => {
   return (
     <StyledBanner {...banner}>
       <BannerHeader>{banner?.header}</BannerHeader>
-      <PrimaryButton text="EXPLORE NOW"/>
+      <Link to="shop_category" smooth={true} duration={500} offset={-100}>
+        <PrimaryButton text="EXPLORE NOW"/>
+      </Link>
     </StyledBanner>
   )
 }

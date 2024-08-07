@@ -60,6 +60,7 @@ export const TotalPrice = styled.div`
 
 interface CheckoutBtnProps {
   status: string;
+  delay: boolean;
 }
 
 export const CheckoutBtn = styled.button<CheckoutBtnProps>`
@@ -80,7 +81,7 @@ export const CheckoutBtn = styled.button<CheckoutBtnProps>`
   text-transform: none;
   text-decoration: none;
   transition: all .2s;
-  opacity: ${props => props.status === 'loading' ? .7 : 1};
+  opacity: ${props => props.status === 'loading' || props.delay ? .7 : 1};
   cursor: pointer;
 
   &:hover {

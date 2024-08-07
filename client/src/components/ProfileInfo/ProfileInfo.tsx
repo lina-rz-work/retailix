@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { css } from 'styled-components';
 import { Header, DivideLine, InfoContainer, StyledInfo, InfoForm, InfoLabel, InfoInput, SubmitButton, DeleteButton, PasswordWrapper, ErrorMessage, InfoMessage } from "./styles";
 import { updateUserStart, updateUserSuccess, updateUserFailure, deleteUserFailure, deleteUserStart, deleteUserSuccess } from "../../features/user/userSlice";
 import { EyeButton } from "../../components/Buttons/EyeButton/EyeButton";
@@ -118,9 +119,13 @@ export const ProfileInfo: React.FC = () => {
     setNotification(null);
   };
 
+  const customStyles = css`
+    width: 54%;
+  `;
+
   return (
     <InfoContainer>
-      {notification && <Notification message={notification} onClose={handleNotificationClose} />}
+      {notification && <Notification message={notification} onClose={handleNotificationClose} customStyles={customStyles}/>}
 
       <Header>Personal Information</Header>
       <DivideLine />

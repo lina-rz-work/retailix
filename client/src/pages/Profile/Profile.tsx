@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useLocation } from "react-router-dom";
-import { Menu, ListContainer, ListItem, SignoutBtn, ContentContainer, MyOrders, Header, StyledCart, DivideLine, Subscriptions, SubscrMessage} from "./styles";
+import { Menu, ListContainer, ListItem, SignoutBtn, ContentContainer, MyOrders, Header, StyledProfile, DivideLine, Subscriptions, SubscrMessage} from "./styles";
 import { ProfileInfo } from "../../components/ProfileInfo/ProfileInfo";
 import { signOutUserStart, signOutUserSuccess, signOutUserFailure } from "../../features/user/userSlice";
 import { clearCart } from "../../features/cart/cartSlice";
@@ -39,7 +39,7 @@ export const Profile: React.FC = () => {
   }, [location.state]);
 
   return (
-    <StyledCart>
+    <StyledProfile>
       <Menu>
         <ListContainer>
           {['my account', 'my orders', 'subscriptions'].map((item, index) => {
@@ -76,6 +76,6 @@ export const Profile: React.FC = () => {
           </Subscriptions>
         }
       </ContentContainer>
-    </StyledCart>
+    </StyledProfile>
   )
 }

@@ -9,6 +9,7 @@ import { createOrder } from "../../features/orders/ordersSlice";
 import { clearCartServer } from "../../features/cart/cartSlice";
 import { RootState } from "../../store/store";
 import { AppDispatch } from "../../store/store";
+import { useState } from "react";
 
 interface OrderSummaryProps {
   showNotification: (message: string) => void;
@@ -20,6 +21,7 @@ export const OrderSummary: React.FC<OrderSummaryProps> = ({ showNotification, sh
   const isAuthenticated = useSelector((state: RootState) => state.user.isAuthenticated);
   const orderStatus = useSelector((state: RootState) => state.orders.status);
   const totalPrice = useSelector(selectTotalPrice);
+  const [delay, setDelay] = useState<boolean>(false);
   const subtotal = totalPrice;
   const dispatch: AppDispatch = useDispatch();
 
@@ -33,8 +35,16 @@ export const OrderSummary: React.FC<OrderSummaryProps> = ({ showNotification, sh
       return;
     }
     
-    dispatch(clearCartServer());
     await dispatch(createOrder({ items, total }));
+
+    setDelay(true);
+    await new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve(undefined);
+      }, 500);
+    });
+    await dispatch(clearCartServer());
+    setDelay(false);
     showModal();
   }
 
@@ -71,8 +81,8 @@ export const OrderSummary: React.FC<OrderSummaryProps> = ({ showNotification, sh
         <TotalPrice>Estimated Total <span>${total}</span></TotalPrice>
 
           
-        <CheckoutBtn onClick={handleCheckout} status={orderStatus}>
-          {orderStatus === 'loading' ? 'PPOCESSING ORDER...' : 'CHECKOUT'}
+        <CheckoutBtn onClick={handleCheckout} status={orderStatus} delay={delay}>
+          {orderStatus === 'loading' || delay ? 'PPOCESSING ORDER...' : 'CHECKOUT'}
         </CheckoutBtn>
         <PayBtns>
           <PayBtn><PayPalIcon /></PayBtn>

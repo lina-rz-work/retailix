@@ -18,9 +18,8 @@ const menuItems = [
 ];
 
 export const Navbar: React.FC = () => {
-  const { scrolled } = useSelector((state: RootState) => state.navbar);
   const { user } = useSelector((state: RootState) => state.user);
-  const { activeMenuItem, loading } = useSelector((state: RootState) => state.navbar);
+  const { activeMenuItem, scrolled, loading } = useSelector((state: RootState) => state.navbar);
   const cartQuantity = useSelector(selectCartQuantity);
   const loginVisible = useSelector(selectLoginVisible);
   const cartVisible = useSelector(selectCartVisible);
@@ -66,7 +65,7 @@ export const Navbar: React.FC = () => {
     }
     dispatch(setActiveMenuItem(location.pathname.slice(1)));
     
-    if (window.scrollY > 0|| loading) {
+    if (window.scrollY > 0 || loading) {
       dispatch(setScrolled(true));
       return;
     }

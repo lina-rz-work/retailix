@@ -1,8 +1,10 @@
 import './App.css';
-import { useEffect, useState } from 'react';
-import { Provider, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { Provider } from 'react-redux';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { PersistGate } from 'redux-persist/integration/react';
+import { store, persistor } from './store/store';
+import { Loader } from './components/Loader/Loader';
 import { Navbar } from './components/Navbar/Navbar';
 import { Home } from './pages/Home/Home';
 import { ShopCategory } from './pages/ShopCategory/ShopCategory';
@@ -11,12 +13,10 @@ import { Cart } from './pages/Cart/Cart';
 import { Footer } from './components/Footer/Footer';
 import { LoginSidePanel } from './components/LoginPanel/Login';
 import { ShoppingCart } from './components/ShoppingCart/ShoppingCart';
-import { store, persistor } from './store/store';
 import { Profile } from './pages/Profile/Profile';
 import { PrivateRoute } from './components/PrivateRoute/PrivateRoute';
 import { fetchProducts } from './features/products/productsSlice';
 import { fetchNewCollection } from './features/newCollection/newCollectionSlice';
-import { Loader } from './components/Loader/Loader';
 
 function App() {
   useEffect(() => {

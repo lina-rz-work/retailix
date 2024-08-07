@@ -11,7 +11,7 @@ export const HeroContainer = styled.div`
   background-size: cover;
   margin-bottom: 40px;
 
-  button {
+  a {
     margin: 0px 0px 76px 0px;
     align-self: center;
   }

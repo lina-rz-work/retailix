@@ -1,7 +1,12 @@
 import styled, { css, keyframes } from 'styled-components';
+import { CSSProperties } from 'styled-components';
 
 interface NotificationProps {
   show: boolean;
+}
+
+interface NotificationContainerProps {
+  customStyles?: ReturnType<typeof css>;
 }
 
 const fadeIn = keyframes`
@@ -26,12 +31,13 @@ const fadeOut = keyframes`
   }
 `;
 
-export const NotificationContainer = styled.div`
+export const NotificationContainer = styled.div<NotificationContainerProps>`
   position: fixed;
   width: 99%;
   display: flex;
   justify-content: center;
   top: 90px;
+  ${(props) => props.customStyles && props.customStyles}
 `
 
 export const Message = styled.div<NotificationProps>`

@@ -5,4 +5,6 @@ export const ToggleBtn = styled.span`
   color: #2e3131;
   background: transparent;
   border: 0;
+  user-select: none;
+  cursor: pointer;
 `

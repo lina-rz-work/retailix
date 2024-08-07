@@ -89,7 +89,7 @@ export const ShopCategoryContent: React.FC<ShopCategoryProps> = ({ category }) =
   }
 
   return (
-    <StyledShopContent>
+    <StyledShopContent id="shop_category">
       <CategoryHeader>{categoryHeader}</CategoryHeader>
 
       <SortCategory>
@@ -98,12 +98,6 @@ export const ShopCategoryContent: React.FC<ShopCategoryProps> = ({ category }) =
       </SortCategory>
 
       <ProductsContainer>
-        {/* {loaderVisible && 
-          <StyledLoader>
-            <Spinner /> Loading...
-          </StyledLoader>
-        } */}
-
         {products.map((product, index) => {
           return <Item key={index} {...product}></Item>
         })}
