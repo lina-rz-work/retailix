@@ -8,12 +8,28 @@ export const HeroContainer = styled.div`
   height: 100vh;
   background-repeat: no-repeat;
   background-image: url(/images/backgrounds/full-shot-family-sitting-grass-together.jpg);
+  background-position: center;
   background-size: cover;
   margin-bottom: 40px;
 
   a {
     margin: 0px 0px 76px 0px;
     align-self: center;
+  }
+
+  @media (max-width: 500px) {
+    background-position-x: 53%;
+    a {
+      margin: 0px 0px 96px 0px;
+    }
+  }
+
+  @media (max-width: 400px) {
+    background-position-x: 54%;
+  }
+
+  @media (max-width: 350px) {
+    height: 90vh;
   }
 `
 
@@ -26,5 +42,17 @@ export const HeroHeader = styled.h2`
   font-family: "Bodoni Cyrillic";
   font-weight: 400;
   margin-top: 100px;
+
+  @media(max-width: 800px) {
+    font-size: 50px;
+  }
+
+  @media(max-width: 500px) {
+    margin-top: 70px;
+  }
+
+  @media(max-width: 350px) {
+    font-size: 40px;
+  }
 `
 

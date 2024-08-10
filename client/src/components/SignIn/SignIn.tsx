@@ -50,7 +50,6 @@ export const SignIn: React.FC = () => {
         }
       }
 
-
       const response = await fetch('/api/cart/getCart', {
         method: 'GET',
         headers: {},
@@ -62,8 +61,6 @@ export const SignIn: React.FC = () => {
 
       const userCart = await response.json();
       dispatch(setCart(userCart.items));
-
-      dispatch(getOrders());
     } catch (error) {
       console.error('Login error:', error);
     }
@@ -97,9 +94,10 @@ export const SignIn: React.FC = () => {
       }
       dispatch(signInSuccess(data));
       dispatch(setLoginVisible(false));
-      setFormData({ email: '', password: '' });
+      dispatch(getOrders());
       syncCart();
       navigate('/');
+      setFormData({ email: '', password: '' });
     } catch (err: any) {
       dispatch(signInFailure(err.message));
     }

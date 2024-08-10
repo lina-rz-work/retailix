@@ -22,5 +22,10 @@ export const ProductsContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 10px;
+  row-gap: 50px;
   padding: 0 150px;
+
+  img {
+    width: 100%;
+  }
 `

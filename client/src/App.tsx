@@ -1,9 +1,7 @@
 import './App.css';
 import { useEffect } from 'react';
-import { Provider } from 'react-redux';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { PersistGate } from 'redux-persist/integration/react';
-import { store, persistor } from './store/store';
+import { Routes, Route } from 'react-router-dom';
+import { store } from './store/store';
 import { Loader } from './components/Loader/Loader';
 import { Navbar } from './components/Navbar/Navbar';
 import { Home } from './pages/Home/Home';
@@ -25,28 +23,24 @@ function App() {
   }, []);
 
   return (
-    <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
-        <BrowserRouter>
-          <Loader />
-          <Navbar />
-          <Routes>
-            <Route path='/' element={<Home />}/>
-            <Route path='/women' element={<ShopCategory category='women' />}/>
-            <Route path='/men' element={<ShopCategory category='men' />}/>
-            <Route path='/kids' element={<ShopCategory category='kids' />}/>
-            <Route path="/product/:productId" element={<Product />} />
-            <Route path='/cart' element={<Cart />} />
-            <Route element={<PrivateRoute />}>
-              <Route path='/profile' element={<Profile />} />
-            </Route>
-          </Routes>
-          <LoginSidePanel />
-          <ShoppingCart />
-          <Footer />
-        </BrowserRouter> 
-      </PersistGate> 
-    </Provider>
+    <>
+      <Loader />
+      <Navbar />
+      <Routes>
+        <Route path='/' element={<Home />}/>
+        <Route path='/women' element={<ShopCategory category='women' />}/>
+        <Route path='/men' element={<ShopCategory category='men' />}/>
+        <Route path='/kids' element={<ShopCategory category='kids' />}/>
+        <Route path="/product/:productId" element={<Product />} />
+        <Route path='/cart' element={<Cart />} />
+        <Route element={<PrivateRoute />}>
+          <Route path='/profile' element={<Profile />} />
+        </Route>
+      </Routes>
+      <LoginSidePanel />
+      <ShoppingCart />
+      <Footer />
+    </>
   )
 }
 
