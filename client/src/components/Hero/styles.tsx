@@ -17,15 +17,17 @@ export const HeroContainer = styled.div`
     align-self: center;
   }
 
+  @media (max-width: 800px) {
+    background-position-x: 54%;
+  }
+
   @media (max-width: 500px) {
-    background-position-x: 53%;
+    background-image: url(/images/backgrounds/full-shot-family-sitting-grass-together1.jpg);
+    background-position-x: 54%;
+    background-position-y: bottom;
     a {
       margin: 0px 0px 96px 0px;
     }
-  }
-
-  @media (max-width: 400px) {
-    background-position-x: 54%;
   }
 
   @media (max-width: 350px) {
@@ -48,7 +50,8 @@ export const HeroHeader = styled.h2`
   }
 
   @media(max-width: 500px) {
-    margin-top: 70px;
+    margin-top: 120px;
+    font-size: 45px;
   }
 
   @media(max-width: 350px) {

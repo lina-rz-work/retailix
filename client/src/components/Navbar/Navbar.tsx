@@ -1,9 +1,10 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { StyledNavbar, LogoName, NavMenu, NavMenuElem, ButtonsWrapper, NavButton, CartCounter } from "./styles";
+import { StyledNavbar, LogoName, NavMenu, NavMenuElem, ButtonsWrapper, MenuButton, NavButton, CartCounter } from "./styles";
 import { ReactComponent as CartIcon } from '../../assets/images/icons/shopping-bag.svg';
 import { ReactComponent as UserIcon } from '../../assets/images/icons/user-com.svg';
+import { ReactComponent as MenuIcon } from '../../assets/images/icons/menu-05-svgrepo-com.svg'
 import { setLoginVisible, setCartVisible } from '../../features/uiState/uiStateSlice';
 import { setActiveMenuItem, setScrolled } from "../../features/navbar/navbarSlice";
 import { selectLoginVisible, selectCartVisible } from "../../features/uiState/uiStateSelectors";
@@ -93,6 +94,10 @@ export const Navbar: React.FC = () => {
 
   return (
     <StyledNavbar scrolled={scrolled}>
+      <MenuButton scrolled={scrolled} onClick={() => {}}>
+        <MenuIcon />
+      </MenuButton>
+
       <LogoName scrolled={scrolled} onClick={handleLogoClick}> 
         <Link to='/'>RETAILIX</Link>
       </LogoName>
@@ -119,9 +124,9 @@ export const Navbar: React.FC = () => {
         </NavButton>
 
         <NavButton scrolled={scrolled} onClick={() => dispatch(setCartVisible(!cartVisible))}>
-          <CartIcon />
+          <CartIcon className='cart_item'/>
           CART
-          <CartCounter>{cartQuantity}</CartCounter>
+          <CartCounter className='cart_quantity'>{cartQuantity}</CartCounter>
         </NavButton>
       </ButtonsWrapper>
     </StyledNavbar>

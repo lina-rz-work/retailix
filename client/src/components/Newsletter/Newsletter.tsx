@@ -7,7 +7,7 @@ export const Newsletter: React.FC = () => {
     <StyledNewsletter>
       <NewsletterHeader>RECEIVE OFFERS TO YOUR EMAIL</NewsletterHeader>
       <NewsletterDescription>
-        Personal offers, early access to new collections and a 5% discount <br />
+        Personal offers, early access to new collections and a 5% discount
         on your first order when subscribing to the newsletter
       </NewsletterDescription>
 

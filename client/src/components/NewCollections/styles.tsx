@@ -7,6 +7,10 @@ export const StyledNewCollections = styled.div`
   gap: 10px;
   max-height: max-content;
   margin-bottom: 150px;
+
+  @media(max-width: 500px) {
+    margin-bottom: 130px;
+  }
 `
 
 export const CollectionsHeader = styled.h1`
@@ -14,6 +18,27 @@ export const CollectionsHeader = styled.h1`
   font-weight: 700;
   font-family: "Bodoni Cyrillic";
   color: #171717;
+
+
+  @media(max-width: 1024px) {
+    font-size: 43px;
+  }
+
+  @media(max-width: 800px) {
+    font-size: 37px;
+  }
+
+  @media(max-width: 500px) {
+    font-size: 37px;
+  }
+
+  @media(max-width: 500px) {
+    font-size: 30px;
+  }
+
+  @media(max-width: 350px) {
+    font-size: 25px;
+  }
 `
 
 export const CollectionsContainer = styled.div`
@@ -21,11 +46,22 @@ export const CollectionsContainer = styled.div`
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 10px;
   row-gap: 50px;
-  padding: 0 150px;
+  /* padding: 0 150px; */
 
-  img {
-    width: 100%;
-  }
+    @media(max-width: 800px) {
+      grid-template-columns: 1fr 1fr;
+      row-gap: 40px;
+      padding: 0;
+    }
+  
+    @media(max-width: 500px) {
+      grid-template-columns: 1fr 1fr;
+    }
+  
+    @media(max-width: 350px) {
+      grid-template-columns: 1fr;
+      row-gap: 30px;
+    }
 `
 
 

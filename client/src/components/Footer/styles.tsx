@@ -18,16 +18,36 @@ export const StyledFooter = styled.div`
 `
 
 export const FooterLinksContainer = styled.div`
-  display: flex;
-  gap: 90px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 10%;
   width: 100%;
   box-sizing: border-box;
   list-style: none;
   font-size: 15px;
   font-family: "PT Sans", sans-serif;
-  padding: 0 150px;
+  padding: 0 10%;
   margin-bottom: 40px;
   margin-top: 30px;
+
+  @media(max-width: 800px) {
+    grid-template-columns: 1fr 1fr;
+    gap: 5%;
+    padding: 0 20%;
+  }
+
+  @media(max-width: 500px) {
+    grid-template-columns: 1fr 1fr;
+    gap: 5%;
+    padding: 0 7%;
+    font-size: 13px;
+  }
+
+  @media(max-width: 350px) {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 0px 20%;
+  }
 `
 
 export const Copyright = styled.div`
@@ -42,5 +62,13 @@ export const Copyright = styled.div`
     border: 0;
     border-bottom: 1px solid #34271291;
     width: 100%;
+  }
+
+  @media(max-width: 500px) {
+    text-align: center;
+
+    p {
+      padding: 0 10px;
+    }
   }
 `

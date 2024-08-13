@@ -1,7 +1,9 @@
 import styled from "styled-components";
 
 export const LinksContainer = styled.div`
-  width: 25%;
+  /* width: 25%; */
+  min-width: max-content;
+  max-width: 168px;
 `
 export const LinksHeader = styled.div`
   margin: 1.2rem 0;
@@ -20,5 +22,9 @@ export const ListItem = styled.div`
   a {
     text-decoration: none;
     color: inherit;
+  }
+
+  @media(max-width: 500px) {
+    font-size: 13px;
   }
 `

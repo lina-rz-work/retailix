@@ -34,16 +34,30 @@ export const StyledItem = styled.div<StyledItemProps>`
   a {
     text-decoration: none;
   }
+
+  @media(max-width: 800px) {
+    .add_btn {
+      display: none;
+    }
+  }
+
+  @media(max-width: 350px) {
+    margin: 0 auto;
+    width: 80%;
+  }
 `
 
 export const PictureBlock = styled.div`
   position: relative;
   width: 100%;
   max-width: 250px;
+  // height: 100%;
+  // max-height: 330px;
 
   img {
-    width: 250px;
-    height: 330px;
+    width: 100%;
+    height: 100%;
+
     object-fit: cover;
     object-position: center;
     display: block;
