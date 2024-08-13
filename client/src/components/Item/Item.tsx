@@ -47,7 +47,7 @@ export const Item: React.FC<ProductProps> = ( props ) => {
 
         <AddButton 
           clicked={clicked}
-          className={'add_btn'}
+          className='add_btn'
           onClick={() => setClicked(true)}>
           Add
         </AddButton>

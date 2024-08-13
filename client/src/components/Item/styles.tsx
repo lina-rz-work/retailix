@@ -35,12 +35,6 @@ export const StyledItem = styled.div<StyledItemProps>`
     text-decoration: none;
   }
 
-  @media(max-width: 800px) {
-    .add_btn {
-      display: none;
-    }
-  }
-
   @media(max-width: 350px) {
     margin: 0 auto;
     width: 80%;
@@ -51,8 +45,6 @@ export const PictureBlock = styled.div`
   position: relative;
   width: 100%;
   max-width: 250px;
-  // height: 100%;
-  // max-height: 330px;
 
   img {
     width: 100%;
@@ -85,6 +77,10 @@ export const AddButton = styled.button<AddButtonProps>`
   &:hover {
     background-color: hsla(0, 0%, 100%, .9);
   }
+
+  @media(max-width: 800px) {
+    display: none;
+  }
 `
 
 export const ChooseSize = styled.div<ChooseSizeProps>`
@@ -115,6 +111,10 @@ export const ChooseSize = styled.div<ChooseSizeProps>`
     margin: 0;
     margin-right: 10px;
     color: #2e3131;
+  }
+
+  @media(max-width: 800px) {
+    display: none;
   }
 `
 
