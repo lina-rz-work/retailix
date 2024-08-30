@@ -126,11 +126,10 @@ export const DeleteButton = styled.button`
 
 export const ErrorMessage = styled.p`
   position: absolute;
-  margin-top: 10%;
   color: rgb(215, 55, 61);
-  bottom: 88px;
+  bottom: 11%;
   font-size: 13px;
-  font-family: 'PT Sans', sans-serif;
+  font-family: "PT Sans", sans-serif;
 `;
 
 export const InfoMessage = styled.p`
