@@ -6,7 +6,7 @@ volumes:
   mongo-data:
 
 x-template: &template
-  restart: on-failure
+  restart: ${COMPOSE_RESTART_POLICY}
   env_file:
     - .env
   networks:
