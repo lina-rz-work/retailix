@@ -27,7 +27,12 @@ setup: ## Setup environment
 
 .PHONY: up
 up: ## Up environment
-	$(dc) up --build --remove-orphans -d
+	$(dc) up --build --remove-orphans -d mongo
+	$(dc) up --build --remove-orphans -d app proxy
+
+.PHONY: up.prod
+up.prod: ## Up production environment
+	$(dc) up --build --remove-orphans -d app proxy
 
 .PHONY: stop
 stop: ## Stop environment

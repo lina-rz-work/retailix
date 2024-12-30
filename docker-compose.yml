@@ -26,8 +26,6 @@ services:
   app:
     <<: *template
     build: .
-    depends_on:
-      - mongo
     command: yarn start
 
   mongo:
