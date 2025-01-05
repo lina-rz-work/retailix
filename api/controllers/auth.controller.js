@@ -45,7 +45,7 @@ export const signin = async (req, res, next) => {
       res.status(401).json({ success: false, message: 'Wrong login or password!' });
     }
 
-    const token = jwt.sign({ id: validUser._id }, process.env.JWT_SECRET);
+    const token = jwt.sign({ id: validUser._id }, process.env.NODE_JWT_SECRET);
     const { password: pass, ...rest } = validUser._doc;
     res
       .cookie('access_token', token, { httpOnly: true })

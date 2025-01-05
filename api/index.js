@@ -13,7 +13,7 @@ import bodyParser from 'body-parser';
 
 dotenv.config();
 
-const mongoUri = process.env.MONGO;
+const mongoUri = process.env.NODE_MONGO_URI;
 if (!mongoUri) {
   throw new Error("MongoDB connection string is not defined in the environment variables");
 }
@@ -34,8 +34,10 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(bodyParser.json());
 
-app.listen(4000, () => {
-    console.log('Server is running on port 4000*');
+
+const nodePort = process.env.NODE_PORT;
+app.listen(nodePort, () => {
+    console.log(`Server is running on port ${nodePort}*`);
   }
 );
 

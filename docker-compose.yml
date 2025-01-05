@@ -1,0 +1,36 @@
+networks:
+  retailix:
+    name: retailix-net
+
+volumes:
+  mongo-data:
+
+x-template: &template
+  restart: ${COMPOSE_RESTART_POLICY}
+  env_file:
+    - .env
+  networks:
+    - retailix
+
+services:
+  proxy:
+    <<: *template
+    image: nginx:1.27.3-bookworm-perl
+    ports:
+      - ${PROXY_PORT}:${PROXY_PORT}
+    volumes:
+      - ./.docker/nginx/templates/retailix.vhost.conf:/etc/nginx/templates/default.conf.template:ro
+    depends_on:
+      - app
+
+  app:
+    <<: *template
+    build: .
+    command: yarn start
+
+  mongo:
+    <<: *template
+    image: mongo:7.0.16-jammy
+    volumes:
+      - mongo-data:/data/db:rw
+      - ./.docker/mongo/dump:/dump:ro
