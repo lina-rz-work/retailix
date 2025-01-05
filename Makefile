@@ -21,6 +21,7 @@ include .env
 setup: ## Setup environment
 	make stop
 	cp -f ./.env.default ./.env
+	source .env
 	$(dc) up mongo --remove-orphans -d
 	$(de) ${COMPOSE_PROJECT_NAME}-mongo-1 mongorestore --uri ${NODE_MONGO_URI} --nsInclude=${MONGO_INITDB_DATABASE}.products /dump/retailix
 	make up
