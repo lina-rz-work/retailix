@@ -11,7 +11,7 @@ d := COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_BUILDKIT=1 docker
 dc := $(d) compose
 de := $(d) exec -ti
 
-include .env
+-include .env
 
 ## ----------------------------------------------------------------------
 ## Environment:
@@ -19,12 +19,15 @@ include .env
 
 .PHONY: setup
 setup: ## Setup environment
-	make stop
 	cp -f ./.env.default ./.env
-	source .env
+	make setup.install
+
+.PHONY: setup.install
+setup.install: ## Setup [install stage] environment
+	make down
 	$(dc) up mongo --remove-orphans -d
 	$(de) ${COMPOSE_PROJECT_NAME}-mongo-1 mongorestore --uri ${NODE_MONGO_URI} --nsInclude=${MONGO_INITDB_DATABASE}.products /dump/retailix
-	make up
+	make stop
 
 .PHONY: up
 up: ## Up environment
