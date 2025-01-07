@@ -15,44 +15,40 @@ React TypeScript, Redux Toolkit, Styled Components, React Router, Redux Persist,
   their cart, with persistent cart data even for non-registered users
 - Order management: users can place and cancel orders
 
-The project is available at https://retailix.onrender.com/
+The project is available at http://ec2-13-53-117-58.eu-north-1.compute.amazonaws.com/
 
 
 
 ## Running the Application
 
-1\. Clone the repository
+1\. Environment Setup
 
 ```bash
-  git clone https://github.com/lina-rz-work/retailix.git
+  make up
 ```
 
-2\. Install dependencies for both frontend and backend:
+2\. Starting the Environment
 
 ```bash
-  # in the project directory (retailix)
-  npm install
-
-  # in the client directory (client)
-  cd client
-  npm install
+  make up
 ```
 
-3\. Set up environment variables
-
-сreate a .env file in the project directory (retailix) and add the necessary environment variables <br>
-`MONGO`<br>
-`JWT_SECRET`
-
-
-4\. Run the application
+3\. Stopping the Environment
 
 ```bash
-  # in the project directory (retailix)
-  yarn start
-
-  # in the client directory (client)
-  cd client
-  yarn start
+  make stop
 ```
-The app should now be running on [localhost:3000](http://localhost:3000/).
+
+
+4\. Full Cleanup
+
+```bash
+  make down
+```
+
+5\. Viewing Logs
+
+```bash
+  make logs
+```
+
