@@ -20,6 +20,7 @@ The project is available at http://ec2-13-53-117-58.eu-north-1.compute.amazonaws
 
 
 ## Running the Application
+This project uses Docker Compose for environment management. The Makefile contains essential commands for setting up, starting, and managing the environment.
 
 1\. Environment Setup
 
@@ -52,3 +53,6 @@ The project is available at http://ec2-13-53-117-58.eu-north-1.compute.amazonaws
   make logs
 ```
 
+## Notes
+- Ensure the .env file contains valid configurations for database connections and other services.
+- If you encounter issues, verify that Docker is running and the ports specified in .env are not occupied by other processes.
